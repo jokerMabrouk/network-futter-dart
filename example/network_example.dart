@@ -1,4 +1,4 @@
-import 'package:network/get.dart';
+import 'package:network/services/get.dart';
 import 'package:network/network.dart';
 import 'package:network/utils/network_config.dart';
 

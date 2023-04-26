@@ -1,13 +1,16 @@
-import 'package:dio/dio.dart';
-import 'package:network/auth.dart';
-import 'package:network/delete.dart';
-import 'package:network/exception/network_exception.dart';
-import 'package:network/post.dart';
-import 'package:network/update.dart';
 import 'package:test/test.dart';
-import 'package:network/get.dart';
+
+import 'package:dio/dio.dart';
+
+import 'package:network/services/get.dart';
+import 'package:network/services/post.dart';
+import 'package:network/services/auth.dart';
+import 'package:network/services/update.dart';
+import 'package:network/services/delete.dart';
+
 import 'package:network/network.dart';
 import 'package:network/utils/network_config.dart';
+import 'package:network/exception/network_exception.dart';
 
 void main() {
   /*group('A group of tests', () {

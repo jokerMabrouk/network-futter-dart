@@ -4,11 +4,11 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-import './utils/network_config.dart';
+import '../utils/network_config.dart';
 
-import 'src/network_base.dart';
+import '../src/network_base.dart';
 
-import './exception/network_exception.dart';
+import '../exception/network_exception.dart';
 
 abstract class GetWebRequestServices {
   Future<RESPONSE_MAP_TYPE> getRequest(String endPoint);

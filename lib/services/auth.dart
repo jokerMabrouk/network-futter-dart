@@ -4,11 +4,11 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
-import 'src/network_base.dart';
+import '../src/network_base.dart';
 
-import './utils/network_config.dart';
+import '../utils/network_config.dart';
 
-import './exception/network_exception.dart';
+import '../exception/network_exception.dart';
 
 abstract class AuthWebRequestServices {
   Future<RESPONSE_MAP_TYPE> createAuthToken(
