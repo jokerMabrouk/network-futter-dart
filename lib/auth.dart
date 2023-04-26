@@ -1,3 +1,5 @@
+library auth.dart;
+
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
@@ -9,12 +11,11 @@ import './utils/network_config.dart';
 import './exception/network_exception.dart';
 
 abstract class AuthWebRequestServices {
-  Future<RESPONSE_MAP_TYPE> createAuthToken({
-    required String endPoint,
+  Future<RESPONSE_MAP_TYPE> createAuthToken(
+      {required String endPoint,
       required String userName,
       required String email,
-      required String password
-  });
+      required String password});
 
   Future<RESPONSE_MAP_TYPE> readAuthToken({
     required String endPoint,
@@ -25,16 +26,15 @@ abstract class AuthWebRequestServices {
 
 class DioAuthWebRequestServices implements AuthWebRequestServices {
   @override
-  Future<RESPONSE_MAP_TYPE> createAuthToken({
-    required String endPoint,
-    required String userName,
-    required String email,
-    required String password
-  }) async {
+  Future<RESPONSE_MAP_TYPE> createAuthToken(
+      {required String endPoint,
+      required String userName,
+      required String email,
+      required String password}) async {
     try {
       final String body = jsonEncode(
         {
-          'username':userName,
+          'username': userName,
           'email': email,
           'password': password,
         },
@@ -54,8 +54,6 @@ class DioAuthWebRequestServices implements AuthWebRequestServices {
 
       return response.data;
     } on DioError catch (dioError) {
-      print(
-          '\n\n\n\nDio Error message is $dioError\n Dio Error Type is ${dioError.type}\n\n\n\n\n');
       if ((dioError.type == DioErrorType.receiveTimeout) ||
           (dioError.type == DioErrorType.sendTimeout) ||
           (dioError.type == DioErrorType.connectionError)) {
@@ -98,8 +96,6 @@ class DioAuthWebRequestServices implements AuthWebRequestServices {
 
       return response.data;
     } on DioError catch (dioError) {
-      print(
-          '\n\n\n\nDio Error message is $dioError\n Dio Error Type is ${dioError.type}\n\n\n\n\n');
       if ((dioError.type == DioErrorType.receiveTimeout) ||
           (dioError.type == DioErrorType.sendTimeout) ||
           (dioError.type == DioErrorType.connectionError)) {

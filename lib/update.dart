@@ -36,8 +36,7 @@ class DioUpdateWebRequestServices implements UpdateWebRequestServices {
           )
           .then((response) => response.data);
     } on DioError catch (dioError) {
-      print(
-          '\n\n\n\nDio Error message is $dioError\n Dio Error Type is ${dioError.type}\n\n\n\n\n');
+      
       if ((dioError.type == DioErrorType.receiveTimeout) ||
           (dioError.type == DioErrorType.sendTimeout) ||
           (dioError.type == DioErrorType.connectionError)) {
